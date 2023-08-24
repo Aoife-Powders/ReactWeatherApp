@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Sun, Cloud, CloudRain, AlertTriangle, Wind } from "react-feather";
+import { Sun, Cloud, CloudRain, AlertTriangle, Wind, CloudDrizzle, CloudSnow, CloudLightning } from "react-feather";
 
 
 const weatherIcons = {
@@ -8,6 +8,9 @@ const weatherIcons = {
     Clouds: Cloud,
     Rain: CloudRain,
     Mist: Wind,
+    Drizzle: CloudDrizzle,
+    Lightning: CloudLightning,
+    Snow: CloudSnow,
     default: AlertTriangle,
 };
 
