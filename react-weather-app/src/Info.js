@@ -1,5 +1,16 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Sun, Cloud, CloudRain, AlertTriangle, Wind } from "react-feather";
+
+
+const weatherIcons = {
+    Clear: Sun,
+    Clouds: Cloud,
+    Rain: CloudRain,
+    Mist: Wind,
+    default: AlertTriangle,
+};
+
 
 export default function Info(props) {
     const [temperature, setTemperature] = useState(null);
@@ -15,6 +26,7 @@ export default function Info(props) {
         setHumidity(response.data.main.humidity);
         setWind(response.data.wind.speed);
         setDescription(response.data.weather[0].description);
+        console.log(description);
     }
 
     return (
@@ -25,10 +37,13 @@ export default function Info(props) {
                 <li>{description}</li>
                 <li>Humidity: {humidity}%</li>
                 <li>Wind: {wind}km/h</li>
-                <img
-                    src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
-                    alt="sunny"
-                />
+                {Object.keys(weatherIcons).map(key => {
+                    if (description && description.toLowerCase().includes(key.toLowerCase())) {
+                        const IconComponent = weatherIcons[key];
+                        return React.createElement(IconComponent, { key, size: 64 });
+                    }
+                    return null;
+                })}
             </ul>
         </div>
     );

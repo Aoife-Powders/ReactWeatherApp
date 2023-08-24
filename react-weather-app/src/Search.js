@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./Search.scss"
 
 export default function Search(props) {
     let [search, setSearch] = useState(null);
@@ -13,8 +14,9 @@ export default function Search(props) {
     }
 
     return (
-        <div>
+        <div className="search">
             <form onSubmit={handleSubmit}>
+                <h4 className="margin">Search City:</h4>
                 <input type="search" onChange={updateSearch} />
                 <input type="submit" value="Search" />
             </form>

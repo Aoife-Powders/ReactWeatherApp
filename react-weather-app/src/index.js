@@ -2,15 +2,28 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import Search from "./Search";
 import Info from "./Info";
+import CloudImage from "./rain-clouds-png-27.png"; // Import cloud images
 import React, { useState } from "react";
-import "./index.css";
+import "./index.scss";
 
 function App() {
   const [city, setCity] = useState("Paris");
   return (
-    <div className="App">
-      <Search setCity={setCity} />
-      <Info city={city} />
+    <div>
+      <div>
+        <img
+          src={CloudImage}
+          alt="Cloud"
+          className="cloud"
+        />
+      </div>
+      <div className="App">
+        <h1>React Weather App</h1>
+        <Search setCity={setCity} />
+        <div className="card-wrapper">
+          <Info city={city} />
+        </div>
+      </div>
     </div>
   );
 }

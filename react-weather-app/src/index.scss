@@ -1,0 +1,52 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #b5d6e0;
+
+  /* Add card wrapper styles */
+  .card-wrapper {
+    background-color: #f1fcff; /* Card background color */
+    border-radius: 10px; /* Rounded corners for the card */
+    box-shadow: 0px 14px 16px rgba(0, 0, 0, 0.1); /* Shadow for the card */
+    padding: 20px; /* Padding inside the card */
+    max-width: 250px; /* Maximum width of the card */
+    width: 100%; /* Ensure the card takes full available width */
+  }
+}
+
+
+@keyframes cloudMove {
+  0%{
+    transform: translateX(-100%); /* Move the clouds off the left side */
+  }
+  100% {
+    transform: translateX(100vw); /* Move the clouds off the right side */
+  }
+}
+
+.cloud {
+  position: absolute;
+  top: 100px; /* Adjust the vertical position as needed */
+  animation: cloudMove 20s linear infinite; /* Adjust the animation duration as needed */
+}
+
+.cloud-1{
+  margin-right: 100px;
+}
